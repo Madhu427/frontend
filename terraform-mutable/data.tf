@@ -4,3 +4,6 @@ data "aws_ami" "ami" {
   owners           = ["self"]
   }
 
+output "out" {
+  value =  data.aws_ami.ami.id
+}
