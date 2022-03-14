@@ -1,6 +1,6 @@
 resource "aws_instance" "ec2-inst" {
   count         = var.INSTANCE_COUNT
-  ami           = data.aws_ami.ami.id
+  ami           = data.aws_ami.ami1.id
   instance_type = var.INSTANCE_TYPE
 
 #  tags = {

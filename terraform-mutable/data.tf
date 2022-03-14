@@ -1,9 +1,9 @@
-data "aws_ami" "ami" {
+data "aws_ami" "ami1" {
   most_recent      = true
   name_regex       = "devopsLP"
   owners           = ["self"]
   }
 
 output "out1" {
-  value =  data.aws_ami.ami
+  value =  data.aws_ami.ami1
 }
