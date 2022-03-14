@@ -9,5 +9,5 @@ resource "aws_instance" "ec2-inst" {
 }
 
 output "out" {
- value =  data.aws_ami.ami.id
+ value =  data.aws_ami.ami1.id
 }
