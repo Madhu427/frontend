@@ -3,4 +3,4 @@ data "aws_ami" "ami" {
   name_regex       = "devopsLP"
   owners           = ["self"]
   }
-}
+
