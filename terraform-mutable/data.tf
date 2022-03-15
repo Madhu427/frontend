@@ -8,7 +8,7 @@ data "terraform_remote_state" "vpc" {
   backend = "s3"
   config = {
     bucket = "tf-bucket-61"
-    key    = "vpc/${ENV}/terraform.tfstate"
+    key    = "vpc/${var.ENV}/terraform.tfstate"
     region = "us-east-1"
   }
 }
