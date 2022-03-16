@@ -1,6 +1,6 @@
-resource "aws_security_group" "sg-inst" {
-  name        = "sg-inst-${var.ENV}-${COMPONENT}"
-  description = "sg-inst-${var.ENV}-${COMPONENT}"
+resource "aws_security_group" "sg" {
+  name        = "sg-${var.ENV}-${COMPONENT}"
+  description = "sg-${var.ENV}-${COMPONENT}"
   vpc_id      = data.terraform_remote_state.vpc.outputs.VPC_ID
 
 
@@ -21,7 +21,7 @@ resource "aws_security_group" "sg-inst" {
   }
 
   tags = {
-    Name = "sg-inst-${var.ENV}-${COMPONENT}"
+    Name = "sg-${var.ENV}-${COMPONENT}"
   }
 }
 
