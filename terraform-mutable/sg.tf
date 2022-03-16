@@ -1,15 +1,23 @@
 resource "aws_security_group" "sg" {
-  name        = "sg-${var.ENV}-${var.COMPONENT}"
-  description = "sg-${var.ENV}-${var.COMPONENT}"
+  name        = "sg_${var.ENV}_${var.COMPONENT}"
+  description = "sg_${var.ENV}_${var.COMPONENT}"
   vpc_id      = data.terraform_remote_state.vpc.outputs.VPC_ID
 
 
   ingress {
-    description      = "HTTP Traffic"
+    description      = "HTTP"
     from_port        = 80
     to_port          = 80
     protocol         = "tcp"
-    cidr_blocks      = ["0.0.0.0/0"]
+    cidr_blocks      = data.terraform_remote_state.vpc.outputs.PRIVATE_SUBNET_CIDR
+  }
+
+  ingress {
+    description      = "SSH"
+    from_port        = 22
+    to_port          = 22
+    protocol         = "tcp"
+    cidr_blocks      = concat(data.terraform_remote_state.vpc.outputs.PRIVATE_SUBNET_CIDR, tolist([data.terraform_remote_state.vpc.outputs.VPC_CIDR]))
   }
 
   egress {
@@ -21,7 +29,7 @@ resource "aws_security_group" "sg" {
   }
 
   tags = {
-    Name = "sg-${var.ENV}-${var.COMPONENT}"
+    Name = "sg_${var.ENV}_${var.COMPONENT}"
   }
 }
 
