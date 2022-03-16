@@ -2,7 +2,7 @@ resource "aws_security_group" "sg-inst" {
   name        = "sg-${var.ENV}-${COMPONENT}"
   description = "sg-${var.ENV}-${COMPONENT}"
   vpc_id      = data.terraform_remote_state.vpc.outputs.VPC_ID
-  security_groups    =
+
 
   ingress {
     description      = "HTTP Traffic"
