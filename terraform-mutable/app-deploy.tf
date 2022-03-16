@@ -1,6 +1,5 @@
 resource "null_resource" "app_deploy" {
   count = length(aws_spot_instance_request.ec2-spot)
-  )
   provisioner "remote-exec" {
 
     connection {
