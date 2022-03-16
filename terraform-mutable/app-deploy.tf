@@ -1,7 +1,6 @@
 resource "null_resource" "app_deploy" {
   count = length(aws_spot_instance_request.ec2-spot)
   provisioner "remote-exec" {
-
     connection {
       type     = "ssh"
       user     = jsondecode(data.aws_secretsmanager_secret_version.secrets.secret_string)["SSH_USERNAME"]
