@@ -2,4 +2,4 @@
 
 env.COMPONENT = "frontend"
 env.BUILD_LABEL = "WORKSTATION"
-nginx()
+immuatble_nginx()
