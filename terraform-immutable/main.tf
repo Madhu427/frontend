@@ -5,8 +5,8 @@ module "app-module" {
   COMPONENT      = var.COMPONENT
   ENV            = var.ENV
   APP_VERSION    = var.APP_VERSION
-  APP_PORT       = 8080
-  LB_RULE_PRIORITY = 400
+  APP_PORT       = 80
+  LB_RULE_PRIORITY = 100
   LB_PRIVATE     = true
   MAX_SIZE       = var.MAX_SIZE
   MIN_SIZE       = var.MIN_SIZE
